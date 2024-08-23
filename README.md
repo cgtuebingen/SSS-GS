@@ -7,8 +7,6 @@
   </strong>
 </p>
 
-⚠️ This is work in progress please don't publish yet (will release Fri. 23 / 00:00 GMT) 
-
 
 https://github.com/user-attachments/assets/1a30660f-ff7b-48ad-a54b-fd293295bd41
 
@@ -33,11 +31,11 @@ Paper is currently under review, we will realse the dataset shortly (~ end of oc
 
 
 # Citation
-You can find our paper on [arXiv](https://arxiv.org/), please consider citing, if you find this work useful:
+You can find our paper on [arXiv](https://arxiv.org/abs/2408.12282), please consider citing, if you find this work useful:
 ```
 @inproceeding{sss_gs,
   author ={Dihlmann, Jan-Niklas and Majumdar, Arjun and Engelhardt, Andreas and Braun, Raphael and Lensch, Hendrik P.A.},
   title ={Subsurface Scattering for Gaussian Splatting},
-  booktitle ={TODO},
+  booktitle ={arXiv preprint arXiv:2408.12282},
   year ={2024}
 }
