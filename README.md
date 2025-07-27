@@ -20,6 +20,7 @@ https://github.com/user-attachments/assets/1a30660f-ff7b-48ad-a54b-fd293295bd41
      <a href="https://github.com/cgtuebingen/SSS-GS?tab=readme-ov-file#citation"> Citation </a> </span>&nbsp;&nbsp;&nbsp;
 </p>
 
+
 # About
 SSS GS got accepted to [NeurIPS 2024](https://neurips.cc/) - [Poster Information](https://neurips.cc/virtual/2024/poster/96787)
 
