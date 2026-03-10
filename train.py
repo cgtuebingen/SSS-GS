@@ -55,7 +55,8 @@ def training(dataset, opt, pipe, render_iteraions, testing_iterations, testing_s
     train_dataset = scene.getTrainCameras()
     print("Batch size: {}".format(opt.batch_size))
     dataloader = DataLoader(train_dataset, batch_size=opt.batch_size, sampler=RandomSampler(train_dataset, replacement=True), num_workers=4, pin_memory=True, drop_last=True)
-    data_iterator = cycle(dataloader)
+    # NOTE: use iter rather than cycle(dataloader)
+    data_iterator = iter(dataloader)
 
     if evaluate:
         test_dataset = scene.getTestCameras()
@@ -88,10 +89,16 @@ def training(dataset, opt, pipe, render_iteraions, testing_iterations, testing_s
 
         gaussians.update_learning_rate(iteration)
 
-        # Pick a random Camera
+        # NOTE: Pick a random Camera, solved RAM leak by cycle(dataloader)
         if camera_batch is None or iteration % len(camera_batch["uid"]) == 0:
             batch_index = 0
-            camera_batch = next(data_iterator)
+            try:
+                camera_batch = next(data_iterator)
+            except StopIteration:
+                data_iterator = iter(dataloader)
+                camera_batch = next(data_iterator)
+
+
            
         viewpoint_cam = {key: value[batch_index] if not isinstance(value, torch.Tensor) else value[batch_index].cuda() for key, value in camera_batch.items()}
         batch_index += 1
