@@ -108,7 +108,7 @@ class CameraDataset(Dataset):
         else:
             light_intensity = torch.tensor([1.0, 1.0, 1.0]).float()
 
-        # Correct coordinate sytem X,Y,Z => X,-Y,-Z
+        # Correct coordinate system X,Y,Z => X,-Y,-Z
         # FIXME: This might be a Blender specific fix, should be generalized
         light_position[1] = -light_position[1]
         light_position[2] = -light_position[2]
